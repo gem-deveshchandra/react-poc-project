@@ -1,0 +1,14 @@
+[
+  { "month": "Jan", "newHires": 12, "terminations": 4, "totalEmployees": 100 },
+  { "month": "Feb", "newHires": 8, "terminations": 6, "totalEmployees": 102 },
+  { "month": "Mar", "newHires": 15, "terminations": 5, "totalEmployees": 112 },
+  { "month": "Apr", "newHires": 10, "terminations": 7, "totalEmployees": 115 },
+  { "month": "May", "newHires": 18, "terminations": 3, "totalEmployees": 100 },
+  { "month": "Jun", "newHires": 14, "terminations": 6, "totalEmployees": 138 },
+  { "month": "Jul", "newHires": 20, "terminations": 9, "totalEmployees": 149 },
+  { "month": "Aug", "newHires": 17, "terminations": 5, "totalEmployees": 161 },
+  { "month": "Sep", "newHires": 11, "terminations": 6, "totalEmployees": 166 },
+  { "month": "Oct", "newHires": 13, "terminations": 4, "totalEmployees": 175 },
+  { "month": "Nov", "newHires": 9, "terminations": 7, "totalEmployees": 177 },
+  { "month": "Dec", "newHires": 16, "terminations": 8, "totalEmployees": 105 }
+]

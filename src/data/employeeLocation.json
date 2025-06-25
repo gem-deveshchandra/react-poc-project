@@ -1,0 +1,10 @@
+[
+  { "location": "Gurgaon", "coordinates": [77.0266, 28.4595], "count": 700 },
+  { "location": "Panchkula", "coordinates": [76.8537, 30.6943], "count": 150 },
+  { "location": "Bengaluru", "coordinates": [77.5946, 12.9716], "count": 21 },
+  { "location": "Hyderabad", "coordinates": [78.4867, 17.3850], "count": 13 },
+  { "location": "Austin", "coordinates": [30.2672, -97.7431], "count": 11 },
+  { "location": "Dubai", "coordinates": [55.2708, 25.2048], "count": 39 },
+  { "location": "London", "coordinates": [-0.1276, 51.5072], "count": 11 },
+  { "location": "Noida", "coordinates": [77.3188, 28.5355], "count": 15 }
+]

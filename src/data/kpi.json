@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "label": "Total Employees",
+      "value": 1130,
+      "icon": "users"
+    },
+    {
+      "id": 2,
+      "label": "Women Ratio",
+      "value": "42%",
+      "icon": "female"
+    },
+    {
+      "id": 3,
+      "label": "New Hires (This Month)",
+      "value": 37,
+      "icon": "user-plus"
+    },
+    {
+      "id": 4,
+      "label": "Departments",
+      "value": 9,
+      "icon": "layers"
+    }
+  ]
+  

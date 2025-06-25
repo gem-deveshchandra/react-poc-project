@@ -1,0 +1,34 @@
+[
+  {
+    "quarter": "Q1",
+    "Applied": 150,
+    "Shortlisted": 90,
+    "Interviewed": 45,
+    "Offered": 20,
+    "Joined": 2
+  },
+  {
+    "quarter": "Q2",
+    "Applied": 180,
+    "Shortlisted": 100,
+    "Interviewed": 50,
+    "Offered": 22,
+    "Joined": 0
+  },
+  {
+    "quarter": "Q3",
+    "Applied": 170,
+    "Shortlisted": 110,
+    "Interviewed": 60,
+    "Offered": 20,
+    "Joined": 2
+  },
+  {
+    "quarter": "Q4",
+    "Applied": 160,
+    "Shortlisted": 90,
+    "Interviewed": 40,
+    "Offered": 20,
+    "Joined": 7
+  }
+]
