@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { Loader  } from "lucide-react";
+import { Loader } from "lucide-react";
 
+import logoIcon from "../assets/Logo1.png"; 
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -28,49 +29,60 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-blue-300">
-      <div className="bg-white p-8 rounded-xl shadow-xl w-96">
-        <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">
-          HR Dashboard Login
-        </h2>
-
-        {error && (
-          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-        )}
-
-        <input
-          type="text"
-          placeholder="Username"
-          className={`w-full p-3 border ${
-            error ? "border-red-500" : "border-gray-300"
-          } rounded mb-4 focus:outline-none focus:ring-2 ${
-            error ? "focus:ring-red-300" : "focus:ring-blue-400"
-          }`}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+    <div className="flex min-h-screen bg-[#e6f7f7]">
+      <div className="flex-1 bg-[#38a3a5] flex items-center justify-center p-12">
+        <img
+          src={logoIcon}
+          alt="Logo Icon"
+          className="h-80 w-auto drop-shadow-lg"
         />
+      </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          className={`w-full p-3 border ${
-            error ? "border-red-500" : "border-gray-300"
-          } rounded mb-4 focus:outline-none focus:ring-2 ${
-            error ? "focus:ring-red-300" : "focus:ring-blue-400"
-          }`}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
 
-        <button
-          onClick={handleLogin}
-          disabled={loading}
-          className={`w-full bg-blue-600 text-white font-semibold py-3 rounded transition hover:bg-blue-700 flex justify-center items-center ${
-            loading ? "cursor-not-allowed opacity-75" : ""
-          }`}
-        >
-          {loading ? <Loader  className="animate-spin h-5 w-5" /> : "Login"}
-        </button>
+      <div className="flex-1 flex items-center justify-center p-12">
+        <div className="bg-white rounded-xl shadow-xl p-10 w-full max-w-md">
+          <h2 className="text-3xl font-extrabold text-[#38a3a5] mb-6 text-center">
+            HR Dashboard
+          </h2>
+
+          {error && (
+            <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+          )}
+
+          <input
+            type="text"
+            placeholder="Username"
+            className={`w-full p-3 border rounded mb-4 focus:outline-none focus:ring-2 ${
+              error
+                ? "border-red-500 focus:ring-red-300"
+                : "border-gray-300 focus:ring-[#38a3a5]"
+            }`}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className={`w-full p-3 border rounded mb-4 focus:outline-none focus:ring-2 ${
+              error
+                ? "border-red-500 focus:ring-red-300"
+                : "border-gray-300 focus:ring-[#38a3a5]"
+            }`}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            className={`w-full bg-[#38a3a5] text-white font-semibold py-3 rounded transition hover:bg-[#2e8c8e] flex justify-center items-center ${
+              loading ? "cursor-not-allowed opacity-75" : ""
+            }`}
+          >
+            {loading ? <Loader className="animate-spin h-5 w-5" /> : "Login"}
+          </button>
+        </div>
       </div>
     </div>
   );

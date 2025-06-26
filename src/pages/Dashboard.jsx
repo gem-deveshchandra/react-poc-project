@@ -6,7 +6,6 @@ const Dashboard = () => {
     <div className="p-4 space-y-6 min-h-screen">
       <KPISection />
       <ChartsSection />
-
       <BottomScrollSection/>
     </div>
   );

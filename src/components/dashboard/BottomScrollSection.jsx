@@ -1,70 +1,69 @@
 import { Button, Dialog, DialogContent, Input } from "@mui/material";
 import { Heading } from "lucide-react";
-import React, { useState, useMemo } from "react";
-
+import React, { useState, useMemo, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import userIcon from "../../assets/profile/profile-2.png";
+import { getAllDashboardData } from "../../redux/dashboardDataSlice";
 
+// const meetings = [
+//   {
+//     id: 1,
+//     candidate: {
+//       name: "Candidate A",
+//       designation: "Senior Python Developer",
+//     },
+//     date: "19th Feb 2024",
+//     time: "10:30 A.M",
+//     levels: [
+//       { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
+//       { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
+//       { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
+//     ],
+//     meetVia: "G-Meet",
+//     attendees: "Attendee 1",
+//   },
+//   {
+//     id: 2,
+//     candidate: {
+//       name: "Candidate B",
+//       designation: "Senior Python Developer",
+//     },
+//     date: "19th Feb 2024",
+//     time: "10:30 A.M",
+//     levels: [
+//       { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
+//       { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
+//       { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
+//     ],
+//     meetVia: "G-Meet",
+//     attendees: "Attendee 1",
+//   },
+//   {
+//     id: 3,
+//     candidate: {
+//       name: "Candidate C",
+//       designation: "Senior Python Developer",
+//     },
+//     date: "19th Feb 2024",
+//     time: "10:30 A.M",
+//     levels: [
+//       { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
+//       { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
+//       { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
+//     ],
+//     meetVia: "G-Meet",
+//     attendees: "Attendee 1",
+//   },
+// ];
 
-const meetings = [
-  {
-    id: 1,
-    candidate: {
-      name: "Candidate A",
-      designation: "Senior Python Developer",
-      
-    },
-    date: "19th Feb 2024",
-    time: "10:30 A.M",
-    levels: [
-      { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
-      { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
-      { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
-    ],
-    meetVia: "G-Meet",
-    attendees: "Attendee 1",
-  },
-  {
-    id: 2,
-    candidate: {
-      name: "Candidate B",
-      designation: "Senior Python Developer",
-      
-    },
-    date: "19th Feb 2024",
-    time: "10:30 A.M",
-    levels: [
-      { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
-      { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
-      { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
-    ],
-    meetVia: "G-Meet",
-    attendees: "Attendee 1",
-  },
-  {
-    id: 3,
-    candidate: {
-      name: "Candidate C",
-      designation: "Senior Python Developer",
-
-    },
-    date: "19th Feb 2024",
-    time: "10:30 A.M",
-    levels: [
-      { level: "1st Level", status: "7/10", interviewer: "Interviewer 1" },
-      { level: "2nd Level", status: "6/10", interviewer: "Interviewer 2" },
-      { level: "3rd Level", status: "Waiting", interviewer: "Interviewer 3" },
-    ],
-    meetVia: "G-Meet",
-    attendees: "Attendee 1",
-  },
-];
-
-const TodaysMeetings = () => {
+const TodaysMeetings = ({ meetings }) => {
   return (
     <section className="bg-white rounded-2xl shadow-md p-4">
-      <h3 className="text-lg font-semibold mb-6">Today's Interview Meetings</h3>
+      <h3 className="text-lg font-semibold mb-6 text-[#05174b]">
+        Today's Interview Meetings
+      </h3>
       <div className="flex space-x-6 overflow-x-auto pb-3">
-        {meetings.map((meeting) => (
+        {meetings?.map((meeting) => (
           <div
             key={meeting.id}
             className="flex-shrink-0 w-[400px] bg-white rounded-2xl shadow-lg border border-gray-300 flex"
@@ -166,49 +165,44 @@ const TodaysMeetings = () => {
   );
 };
 
-const Python = "https://cdn-icons-png.flaticon.com/512/5968/5968350.png";
-const Angular = "https://cdn-icons-png.flaticon.com/512/919/919825.png";
-const Java = "https://cdn-icons-png.flaticon.com/512/226/226777.png";
-const UIUX = "https://cdn-icons-png.flaticon.com/512/1828/1828899.png";
-
-const jobList = [
-  {
-    id: 1,
-    icon: Python,
-    role: "Python Developer",
-    position: "Senior Developer",
-    total_applicants: 258,
-    percentage_inc: 28,
-    last_updated: "6 min ago",
-  },
-  {
-    id: 2,
-    icon: Angular,
-    role: "Angular Developer",
-    position: "Senior Developer",
-    total_applicants: 180,
-    percentage_inc: 15,
-    last_updated: "10 min ago",
-  },
-  {
-    id: 3,
-    icon: Java,
-    role: "Java Developer",
-    position: "Senior Developer",
-    total_applicants: 300,
-    percentage_inc: 35,
-    last_updated: "1 hour ago",
-  },
-  {
-    id: 4,
-    icon: UIUX,
-    role: "UX|UI Designer",
-    position: "Senior Developer",
-    total_applicants: 120,
-    percentage_inc: 12,
-    last_updated: "30 min ago",
-  },
-];
+// const jobList = [
+//   {
+//     id: 1,
+//     icon: Python,
+//     role: "Python Developer",
+//     position: "Senior Developer",
+//     total_applicants: 258,
+//     percentage_inc: 28,
+//     last_updated: "6 min ago",
+//   },
+//   {
+//     id: 2,
+//     icon: Angular,
+//     role: "Angular Developer",
+//     position: "Senior Developer",
+//     total_applicants: 180,
+//     percentage_inc: 15,
+//     last_updated: "10 min ago",
+//   },
+//   {
+//     id: 3,
+//     icon: Java,
+//     role: "Java Developer",
+//     position: "Senior Developer",
+//     total_applicants: 300,
+//     percentage_inc: 35,
+//     last_updated: "1 hour ago",
+//   },
+//   {
+//     id: 4,
+//     icon: UIUX,
+//     role: "UX|UI Designer",
+//     position: "Senior Developer",
+//     total_applicants: 120,
+//     percentage_inc: 12,
+//     last_updated: "30 min ago",
+//   },
+// ];
 
 const Modal = ({ open, onClose, children }) => {
   if (!open) return null;
@@ -228,13 +222,13 @@ const Modal = ({ open, onClose, children }) => {
   );
 };
 
-const PostedJobs = () => {
+const PostedJobs = ({ jobList }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosition, setFilterPosition] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
 
   const filteredJobs = useMemo(() => {
-    return jobList.filter((job) => {
+    return jobList?.filter((job) => {
       const matchesSearch = job.role
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
@@ -245,12 +239,12 @@ const PostedJobs = () => {
     });
   }, [searchTerm, filterPosition]);
 
-  const uniquePositions = [...new Set(jobList.map((job) => job.position))];
+  const uniquePositions = [...new Set(jobList?.map((job) => job.position))];
 
   return (
     <section className="bg-white rounded-2xl shadow-md p-4 w-full">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
-        <h3 className="text-lg font-semibold">Posted Jobs</h3>
+        <h3 className="text-lg font-semibold text-[#05174b]">Posted Jobs</h3>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
           <input
@@ -282,12 +276,12 @@ const PostedJobs = () => {
       </div>
 
       <div className="flex gap-4 overflow-x-auto pb-3">
-        {filteredJobs.length === 0 && (
+        {filteredJobs?.length === 0 && (
           <p className="text-gray-500 text-sm">
             No jobs found matching your criteria.
           </p>
         )}
-        {filteredJobs.map((job) => (
+        {filteredJobs?.map((job) => (
           <div
             key={job.id}
             className="flex-shrink-0 w-64 bg-white rounded-lg shadow border border-gray-200 flex flex-col justify-between p-4"
@@ -358,7 +352,7 @@ const PostedJobs = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredJobs.map((job) => (
+              {filteredJobs?.map((job) => (
                 <tr key={job.id} className="hover:bg-gray-50">
                   <td className="p-3 border border-gray-300 flex items-center gap-2">
                     <img src={job.icon} alt={job.role} className="w-5 h-5" />
@@ -384,48 +378,48 @@ const PostedJobs = () => {
   );
 };
 
-const candidateData = [
-  {
-    id: "#001",
-    name: "Candidate A",
-    position: "Designer",
-    levels: [6, 7, 3, null],
-    outOf: 10,
-    status: "Active",
-  },
-  {
-    id: "#002",
-    name: "Candidate B",
-    position: "Angular Developer",
-    levels: [6, 5, 5, null],
-    outOf: 10,
-    status: "Hired",
-  },
-  {
-    id: "#003",
-    name: "Candidate C",
-    position: "Android Developer",
-    levels: [6, 5, 0, 0],
-    outOf: 10,
-    status: "Rejected",
-  },
-  {
-    id: "#004",
-    name: "Candidate D",
-    position: "iOS Developer",
-    levels: [5, 2, 8, null],
-    outOf: 10,
-    status: "Active",
-  },
-  {
-    id: "#005",
-    name: "Candidate E",
-    position: "Junior Designer",
-    levels: [6, 7, 3, null],
-    outOf: 10,
-    status: "Active",
-  },
-];
+// const candidateData = [
+//   {
+//     id: "#001",
+//     name: "Candidate A",
+//     position: "Designer",
+//     levels: [6, 7, 3, null],
+//     outOf: 10,
+//     status: "Active",
+//   },
+//   {
+//     id: "#002",
+//     name: "Candidate B",
+//     position: "Angular Developer",
+//     levels: [6, 5, 5, null],
+//     outOf: 10,
+//     status: "Hired",
+//   },
+//   {
+//     id: "#003",
+//     name: "Candidate C",
+//     position: "Android Developer",
+//     levels: [6, 5, 0, 0],
+//     outOf: 10,
+//     status: "Rejected",
+//   },
+//   {
+//     id: "#004",
+//     name: "Candidate D",
+//     position: "iOS Developer",
+//     levels: [5, 2, 8, null],
+//     outOf: 10,
+//     status: "Active",
+//   },
+//   {
+//     id: "#005",
+//     name: "Candidate E",
+//     position: "Junior Designer",
+//     levels: [6, 7, 3, null],
+//     outOf: 10,
+//     status: "Active",
+//   },
+// ];
 
 const statusColors = {
   hired: "bg-green-100 text-green-600",
@@ -433,17 +427,17 @@ const statusColors = {
   active: "bg-yellow-100 text-yellow-600",
 };
 
-function CandidateStatus() {
+function CandidateStatus({ candidateData }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPosition, setFilterPosition] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
 
   const uniquePositions = useMemo(() => {
-    return [...new Set(candidateData.map((c) => c.position))];
+    return [...new Set(candidateData?.map((c) => c.position))];
   }, []);
 
   const filteredCandidates = useMemo(() => {
-    return candidateData.filter((c) => {
+    return candidateData?.filter((c) => {
       const matchesSearch =
         c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         c.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -492,14 +486,14 @@ function CandidateStatus() {
           </tr>
         </thead>
         <tbody>
-          {candidates.length === 0 ? (
+          {candidates?.length === 0 ? (
             <tr>
               <td colSpan="9" className="p-3 text-center text-gray-500">
                 No candidates found.
               </td>
             </tr>
           ) : (
-            candidates.map((c) => {
+            candidates?.map((c) => {
               const totalScore = c.levels.some((v) => v === null)
                 ? "-"
                 : `${c.levels.reduce((acc, v) => acc + (v || 0), 0)}/${
@@ -544,7 +538,9 @@ function CandidateStatus() {
   return (
     <section className="bg-white rounded-2xl shadow-md p-4">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-        <h3 className="text-lg font-semibold">Candidate Status</h3>
+        <h3 className="text-lg font-semibold text-[#05174b]">
+          Candidate Status
+        </h3>
         <div className="flex flex-wrap items-center gap-2">
           <input
             type="text"
@@ -584,40 +580,41 @@ function CandidateStatus() {
   );
 }
 
-const interviewList = [
-  {
-    date: new Date("2024-02-07T10:00:00"),
-    position: "Designer",
-    createdBy: "Interviewer A",
-    duration: "10 A.M to 11 A.M",
-  },
-  {
-    date: new Date("2024-02-07T10:00:00"),
-    position: "PMO",
-    createdBy: "Interviewer B",
-    duration: "10 A.M to 11 A.M",
-  },
-  {
-    date: new Date("2024-02-07T10:00:00"),
-    position: "Net. Admin",
-    createdBy: "Interviewer A",
-    duration: "10 A.M to 11 A.M",
-  },
-];
+// const interviewList = [
+//   {
+//     date: new Date("2024-02-07T10:00:00"),
+//     position: "Designer",
+//     createdBy: "Interviewer A",
+//     duration: "10 A.M to 11 A.M",
+//   },
+//   {
+//     date: new Date("2024-02-07T10:00:00"),
+//     position: "PMO",
+//     createdBy: "Interviewer B",
+//     duration: "10 A.M to 11 A.M",
+//   },
+//   {
+//     date: new Date("2024-02-07T10:00:00"),
+//     position: "Net. Admin",
+//     createdBy: "Interviewer A",
+//     duration: "10 A.M to 11 A.M",
+//   },
+// ];
 
 const formatDate = (date) => {
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = date.toLocaleString("default", { month: "short" });
+  date = new Date(date);
+  const day = date?.getDate().toString().padStart(2, "0");
+  const month = date?.toLocaleString("default", { month: "short" });
   return { day, month };
 };
 
-const UpcomingSection = () => {
+const UpcomingSection = ({ interviewList }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="bg-white rounded-2xl shadow-md p-4 w-full">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">Upcomings</h3>
+        <h3 className="text-lg font-semibold text-[#05174b]">Upcomings</h3>
         <button
           className="text-[#38a3a5] hover:underline font-medium text-sm"
           onClick={() => setModalOpen(true)}
@@ -627,19 +624,19 @@ const UpcomingSection = () => {
       </div>
 
       <div className="space-y-4">
-        {interviewList.slice(0, 3).map((interview, idx) => {
-          const { day, month } = formatDate(interview.date);
+        {interviewList?.slice(0, 3)?.map((interview, idx) => {
+          const { day, month } = formatDate(interview?.date);
           return (
             <div
               key={idx}
-              className="flex items-center justify-between gap-4 p-3 border border-gray-200 rounded-lg"
+              className="flex flex-col sm:flex-row items-center justify-between gap-4 p-3 border border-gray-200 rounded-lg"
             >
               <div className="flex flex-col items-center justify-center bg-[#38a3a5] text-white font-bold rounded-md w-12 h-12 text-sm shrink-0">
                 <span>{day}</span>
                 <span>{month}</span>
               </div>
 
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-1">
                 <p className="font-semibold truncate">
                   Interview with {interview.position}
                 </p>
@@ -690,8 +687,8 @@ const UpcomingSection = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {interviewList.map((interview, idx) => {
-                    const { day, month } = formatDate(interview.date);
+                  {interviewList?.map((interview, idx) => {
+                    const { day, month } = formatDate(interview?.date);
                     return (
                       <tr
                         key={idx}
@@ -722,42 +719,44 @@ const UpcomingSection = () => {
   );
 };
 
-const hiringList = [
-  {
-    candidate_name: "Candidate A",
-    position: "Senior Python Developer",
-    hiredBy: "Interviewer X",
-  },
-  {
-    candidate_name: "Candidate B",
-    position: "Senior Python Developer",
-    hiredBy: "Interviewer X",
-  },
-  {
-    candidate_name: "Candidate C",
-    position: "Senior Python Developer",
-    hiredBy: "Interviewer X",
-  },
-  {
-    candidate_name: "Candidate D",
-    position: "Senior Python Developer",
-    hiredBy: "Interviewer X",
-  },
-  {
-    candidate_name: "Candidate E",
-    position: "Senior Python Developer",
-    hiredBy: "Interviewer X",
-  },
-];
+// const hiringList = [
+//   {
+//     candidate_name: "Candidate A",
+//     position: "Senior Python Developer",
+//     hiredBy: "Interviewer X",
+//   },
+//   {
+//     candidate_name: "Candidate B",
+//     position: "Senior Python Developer",
+//     hiredBy: "Interviewer X",
+//   },
+//   {
+//     candidate_name: "Candidate C",
+//     position: "Senior Python Developer",
+//     hiredBy: "Interviewer X",
+//   },
+//   {
+//     candidate_name: "Candidate D",
+//     position: "Senior Python Developer",
+//     hiredBy: "Interviewer X",
+//   },
+//   {
+//     candidate_name: "Candidate E",
+//     position: "Senior Python Developer",
+//     hiredBy: "Interviewer X",
+//   },
+// ];
 
-const HiredSection = () => {
+const HiredSection = ({ hiringList }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <section className="bg-white rounded-2xl shadow-md p-4 w-full">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-semibold">Hiring Candidates</h3>
+        <h3 className="text-lg font-semibold text-[#05174b]">
+          Hiring Candidates
+        </h3>
         <button
           className="text-[#38a3a5] hover:underline font-medium text-sm"
           onClick={() => setModalOpen(true)}
@@ -768,10 +767,10 @@ const HiredSection = () => {
 
       {/* Preview List */}
       <div className="space-y-4">
-        {hiringList.slice(0, 4).map((candidate, idx) => (
+        {hiringList?.slice(0, 4).map((candidate, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between gap-4 p-3 border border-gray-200 rounded-lg"
+            className="flex flex-col sm:flex-row items-center justify-between gap-4 p-3 border border-gray-200 rounded-lg"
           >
             <div className="flex items-center gap-3 min-w-0">
               <div className="w-12 h-12 rounded-full bg-gray-100 overflow-hidden shrink-0">
@@ -835,7 +834,7 @@ const HiredSection = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {hiringList.map((candidate, idx) => (
+                  {hiringList?.map((candidate, idx) => (
                     <tr
                       key={idx}
                       className="border border-gray-200 hover:bg-gray-50 transition"
@@ -889,20 +888,25 @@ const HiredSection = () => {
 //   );
 // };
 const BottomScrollSection = () => {
+  const dispatch = useDispatch();
+  const { loading, data, error } = useSelector((state) => state.dashboardData);
+  useEffect(() => {
+    dispatch(getAllDashboardData());
+  }, [dispatch]);
+  if (loading) return <p>Loading data...</p>;
+
   return (
     <section className="w-full mt-6 pb-10">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Main Content (Left Column) */}
         <div className="lg:col-span-3 space-y-6">
-          <TodaysMeetings />
-          <PostedJobs />
-          <CandidateStatus />
+          <TodaysMeetings meetings={data.todaysMeetings} />
+          <PostedJobs jobList={data.postedJobs} />
+          <CandidateStatus candidateData={data.candidateStatus} />
         </div>
 
-        {/* Sidebar (Right Column) */}
         <div className="lg:col-span-1 space-y-6">
-          <UpcomingSection />
-          <HiredSection />
+          <UpcomingSection interviewList={data.upcomingInterviews} />
+          <HiredSection hiringList={data.hiredCandidates} />
         </div>
       </div>
     </section>

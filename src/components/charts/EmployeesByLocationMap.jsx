@@ -114,17 +114,17 @@ import {
   ZoomableGroup
 } from "react-simple-maps";
 import worldMap from "./../../data/world-topo.json";
-import locationData from "./../../data/employeeLocation.json";
+
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 
-export default function EmployeesByLocationMap() {
-   
+export default function EmployeesByLocationMap({locationData}) {
+  
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full h-full">
-        {/* World Map Section */}
+ 
         <div className="bg-white rounded-2xl shadow-md p-3 relative h-[350px]">
-          <h2 className="text-lg font-semibold mb-2">Employees by Location</h2>
+          <h2 className="text-lg font-semibold mb-2 text-[#05174b]">Employees by Location</h2>
           <ComposableMap
             projectionConfig={{ scale: 140 }}
             width={800}
@@ -150,7 +150,7 @@ export default function EmployeesByLocationMap() {
                 }
               </Geographies>
   
-              {locationData.map((marker, i) => (
+              {locationData?.map((marker, i) => (
                 <Marker
                   key={i}
                   coordinates={marker.coordinates}
@@ -167,7 +167,7 @@ export default function EmployeesByLocationMap() {
   
         {/* Bar Chart Section */}
         <div className="bg-white rounded-2xl shadow-md p-3 h-[350px]">
-          <h2 className="text-lg font-semibold mb-2">Employee Count by Location</h2>
+          <h2 className="text-lg font-semibold mb-2 text-[#05174b]">Employee Count by Location</h2>
           <ResponsiveContainer width="100%" height="85%">
             <BarChart data={locationData} layout="vertical" margin={{ left: 30 }}>
               <XAxis type="number" hide />

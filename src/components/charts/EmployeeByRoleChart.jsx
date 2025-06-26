@@ -1,5 +1,4 @@
 import React from "react";
-import data from "./../../data/employeeRole";
 import {
   BarChart,
   Bar,
@@ -12,7 +11,8 @@ import {
 } from "recharts";
 import ChartCardWrapper from "./ChartCardWrapper";
 
-const EmployeeByRoleChart = () => {
+const EmployeeByRoleChart = ({data}) => {
+
   const chart = (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data}>
@@ -36,7 +36,7 @@ const EmployeeByRoleChart = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
+          {data?.map((row) => (
             <tr key={row.role}>
               <td className="p-2">{row.role}</td>
               <td className="p-2">{row.count}</td>

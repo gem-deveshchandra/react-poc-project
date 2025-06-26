@@ -1,21 +1,16 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { Settings, Moon, User } from 'lucide-react';
-import {
-  Avatar,
-  IconButton,
-  Menu,
-  MenuItem,
-  TextField,
-} from '@mui/material';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { Settings, Moon, User } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEmployees } from "../../redux/employeeSlice";
+import { Avatar, IconButton, Menu, MenuItem, TextField } from "@mui/material";
 import profile from "../../assets/profile/profile-1.jpg";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
-
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
 
@@ -30,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-16 bg-white shadow-md flex justify-between items-center px-6">
+    <div className="h-16 bg-white shadow-md flex justify-between items-center px-6 ml-1">
       <h1 className="font-semibold text-lg text-gray-800">
         Welcome, {user?.username}
       </h1>
@@ -44,8 +39,12 @@ const Navbar = () => {
       />
 
       <div className="flex items-center gap-4">
-        <IconButton><Settings size={20} /></IconButton>
-        <IconButton><Moon size={20} /></IconButton>
+        <IconButton>
+          <Settings size={20} />
+        </IconButton>
+        <IconButton>
+          <Moon size={20} />
+        </IconButton>
         <IconButton onClick={handleMenuOpen}>
           <Avatar sx={{ width: 32, height: 32 }} src={profile} />
         </IconButton>

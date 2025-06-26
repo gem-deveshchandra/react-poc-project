@@ -9,54 +9,60 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import ChartCardWrapper from "./ChartCardWrapper"; // adjust path if needed
+import ChartCardWrapper from "./ChartCardWrapper";
 
-const data = [
-  { ageGroup: "20-25", Male: 12, Female: 14 },
-  { ageGroup: "26-30", Male: 18, Female: 22 },
-  { ageGroup: "31-35", Male: 25, Female: 20 },
-  { ageGroup: "36-40", Male: 14, Female: 12 },
-  { ageGroup: "41+", Male: 10, Female: 8 },
-];
+const AgeTenureChart = ({ data }) => {
+  const chart = (
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart
+        data={data}
+        margin={{ top: 20, right: 30, left: 10, bottom: 10 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="ageGroup"
+          interval={0}
+          angle={-25}
+          textAnchor="end"
+          tick={{ fontSize: 10 }}
+        />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="Male" fill="#3B82F6" name="Male" radius={[4, 4, 0, 0]} />
+        <Bar
+          dataKey="Female"
+          fill="#F472B6"
+          name="Female"
+          radius={[4, 4, 0, 0]}
+        />
+      </BarChart>
+    </ResponsiveContainer>
+  );
 
-const chart = (
-  <ResponsiveContainer width="100%" height={300}>
-    <BarChart data={data} margin={{ top: 20, right: 30, left: 10, bottom: 10 }}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="ageGroup" interval={0} angle={-25} textAnchor="end" tick={{ fontSize: 10 }}    />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="Male" fill="#3B82F6" name="Male" radius={[4, 4, 0, 0]} />
-      <Bar dataKey="Female" fill="#F472B6" name="Female" radius={[4, 4, 0, 0]} />
-    </BarChart>
-  </ResponsiveContainer>
-);
-
-const table = (
-  <div className="overflow-x-auto">
-    <table className="min-w-full border border-gray-200 text-sm">
-      <thead className="bg-gray-100">
-        <tr>
-          <th className="px-3 py-2 text-left border">Age Group</th>
-          <th className="px-3 py-2 text-right border">Male</th>
-          <th className="px-3 py-2 text-right border">Female</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row) => (
-          <tr key={row.ageGroup} className="hover:bg-gray-50">
-            <td className="px-3 py-2 border">{row.ageGroup}</td>
-            <td className="px-3 py-2 text-right border">{row.Male}</td>
-            <td className="px-3 py-2 text-right border">{row.Female}</td>
+  const table = (
+    <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-200 text-sm">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="px-3 py-2 text-left border">Age Group</th>
+            <th className="px-3 py-2 text-right border">Male</th>
+            <th className="px-3 py-2 text-right border">Female</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody>
+          {data?.map((row) => (
+            <tr key={row.ageGroup} className="hover:bg-gray-50">
+              <td className="px-3 py-2 border">{row.ageGroup}</td>
+              <td className="px-3 py-2 text-right border">{row.Male}</td>
+              <td className="px-3 py-2 text-right border">{row.Female}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 
-const AgeTenureChart = () => {
   return (
     <ChartCardWrapper
       title="Age Distribution"

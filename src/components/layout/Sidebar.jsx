@@ -69,7 +69,7 @@ const Sidebar = () => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2 rounded ${
                 isActive
-                  ? "bg-blue-600 text-white font-semibold"
+                  ? "bg-[#38a3a5] text-white font-semibold"
                   : "text-gray-300 hover:bg-[#2a3243]"
               }`
             }

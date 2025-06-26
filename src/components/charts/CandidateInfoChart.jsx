@@ -12,12 +12,12 @@ import {
 import { useMediaQuery } from "@mui/material";
 import ChartCardWrapper from "./ChartCardWrapper"; 
 
-const data = [
-  { quarter: "Q1", Applied: 150, Shortlisted: 90, Interviewed: 45, Offered: 20, Joined: 2 },
-  { quarter: "Q2", Applied: 180, Shortlisted: 100, Interviewed: 50, Offered: 22, Joined: 0 },
-  { quarter: "Q3", Applied: 170, Shortlisted: 110, Interviewed: 60, Offered: 20, Joined: 2 },
-  { quarter: "Q4", Applied: 160, Shortlisted: 90, Interviewed: 40, Offered: 20, Joined: 7 },
-];
+// const data = [
+//   { quarter: "Q1", Applied: 150, Shortlisted: 90, Interviewed: 45, Offered: 20, Joined: 2 },
+//   { quarter: "Q2", Applied: 180, Shortlisted: 100, Interviewed: 50, Offered: 22, Joined: 0 },
+//   { quarter: "Q3", Applied: 170, Shortlisted: 110, Interviewed: 60, Offered: 20, Joined: 2 },
+//   { quarter: "Q4", Applied: 160, Shortlisted: 90, Interviewed: 40, Offered: 20, Joined: 7 },
+// ];
 
 const COLORS = {
   Applied: "#3b82f6",       
@@ -29,7 +29,7 @@ const COLORS = {
 
 const keys = Object.keys(COLORS);
 
-const CandidateInfoChart = () => {
+const CandidateInfoChart = ({data}) => {
   const isMobile = useMediaQuery("(max-width: 640px)");
 
   const chart = (
@@ -80,7 +80,7 @@ const CandidateInfoChart = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(({ quarter, ...stages }) => (
+          {data?.map(({ quarter, ...stages }) => (
             <tr key={quarter} className="hover:bg-gray-50">
               <td className="border px-3 py-1 font-medium">{quarter}</td>
               {keys.map((k) => (

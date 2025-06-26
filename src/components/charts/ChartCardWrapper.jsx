@@ -15,7 +15,7 @@ const ChartCardWrapper = ({ title, chartContent, tableContent, defaultView = "ch
       <Card className="w-full !rounded-2xl shadow-md">
         <CardContent>
           <div className="flex justify-between items-center mb-2">
-            <h2 className="text-lg font-semibold text-gray-700">{title}</h2>
+            <h2 className="text-lg font-semibold d">{title}</h2>
             <div className="flex gap-2">
               <IconButton
                 onClick={toggleView}

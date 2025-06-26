@@ -9,21 +9,11 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import ChartCardWrapper from "./ChartCardWrapper"; // adjust import path if needed
-const data = [
-  { department: "Java", Male: 30, Female: 20 },
-  { department: "Marketing", Male: 15, Female: 25 },
-  { department: "HR", Male: 10, Female: 30 },
-  { department: "Sales", Male: 25, Female: 15 },
-  { department: "Finance", Male: 12, Female: 18 },
-  { department: "Full Stack", Male: 22, Female: 28 },
-  { department: "DevOps", Male: 18, Female: 12 },
-  { department: "Python", Male: 20, Female: 25 },
-  { department: "Infrastructure", Male: 17, Female: 13 },
-  { department: ".NET", Male: 14, Female: 16 },
-];
+import ChartCardWrapper from "./ChartCardWrapper";
 
 
+const DepartmentHeadcountChart = ({data}) => {
+  
 const chart = (
   <ResponsiveContainer width="100%" height={300}>
     <BarChart
@@ -52,7 +42,7 @@ const table = (
         </tr>
       </thead>
       <tbody>
-        {data.map((row) => (
+        {data?.map((row) => (
           <tr key={row.department} className="hover:bg-gray-50">
             <td className="px-3 py-2 border">{row.department}</td>
             <td className="px-3 py-2 text-right border">{row.Male}</td>
@@ -64,7 +54,6 @@ const table = (
   </div>
 );
 
-const DepartmentHeadcountChart = () => {
   return (
     <ChartCardWrapper
       title="Department-wise Headcount"

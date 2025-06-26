@@ -8,8 +8,8 @@ import TopSkillsChart from "../components/charts/TopSkills";
 const EmployeeDevelopmentPage = () => {
   return (
     <div className="p-4 space-y-6">
-      <h2 className="text-2xl font-semibold text-blue-800">
-        Employee Development Dashboard
+      <h2 className="text-2xl font-semibold text-[#38a3a5]">
+        Employee Development
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

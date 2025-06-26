@@ -11,10 +11,9 @@ import {
 } from "recharts";
 import { useMediaQuery } from "@mui/material";
 import ChartCardWrapper from "./ChartCardWrapper"; // Adjust the path as needed
-import data from '../../data/newHireTerminationData.json'
 
 
-const NewHiresVsTerminations = () => {
+const NewHiresVsTerminations = ({data}) => {
   const isMobile = useMediaQuery("(max-width: 640px)");
 
   const chart = (
@@ -68,7 +67,7 @@ const NewHiresVsTerminations = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(({ month, newHires, terminations, totalEmployees }) => (
+          {data?.map(({ month, newHires, terminations, totalEmployees }) => (
             <tr key={month} className="hover:bg-gray-50">
               <td className="px-3 py-2 border">{month}</td>
               <td className="px-3 py-2 text-right border">{newHires}</td>

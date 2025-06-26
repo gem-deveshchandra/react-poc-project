@@ -18,15 +18,20 @@ import {
 } from "@mui/material";
 import { Search, X, FileDown } from "lucide-react";
 import * as XLSX from "xlsx";
-import employeesData from "../data/dummyEmployees";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllEmployees } from "../redux/employeeSlice";
 
 const EmployeeTable = () => {
   const [searchFields, setSearchFields] = useState({});
   const [showSearch, setShowSearch] = useState({});
   const [filterModel, setFilterModel] = useState({ items: [] });
-
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.employees);
   const apiRef = useGridApiRef();
   const visibleRowsRef = useRef([]);
+  useEffect(() => {
+    dispatch(getAllEmployees());
+  }, [dispatch]);
 
   const handleFilterChange = (field, value) => {
     setSearchFields((prev) => ({ ...prev, [field]: value }));
@@ -52,12 +57,12 @@ const EmployeeTable = () => {
 
   const filteredRows = useMemo(
     () =>
-      employeesData.filter((emp) =>
+      data?.filter((emp) =>
         Object.entries(searchFields).every(([field, value]) =>
           emp[field]?.toString().toLowerCase().includes(value.toLowerCase())
         )
       ),
-    [searchFields]
+    [searchFields, data]
   );
 
   const updateVisibleRows = useCallback(() => {
@@ -139,8 +144,13 @@ const EmployeeTable = () => {
 
   return (
     <Box p={3} className="space-y-4">
-      <Box display="flex" justifyContent="space-between" flexWrap="wrap" gap={2}>
-        <h2 className="text-2xl font-semibold text-blue-800">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        flexWrap="wrap"
+        gap={2}
+      >
+        <h2 className="text-2xl font-semibold text-[#38a3a5]">
           Employee Directory
         </h2>
         <Box display="flex" gap={2} flexWrap="wrap">
@@ -148,6 +158,8 @@ const EmployeeTable = () => {
             variant="outlined"
             startIcon={<X size={16} />}
             onClick={clearFilters}
+            sx={{'&:hover':{ backgroundColor:'#38a3a5', color:'white'}}}
+            
           >
             Clear Filters
           </Button>
@@ -155,6 +167,7 @@ const EmployeeTable = () => {
             variant="contained"
             startIcon={<FileDown size={16} />}
             onClick={exportToExcel}
+            sx={{backgroundColor:'#38a3a5'}}
           >
             Export Excel
           </Button>

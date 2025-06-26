@@ -154,7 +154,7 @@ const TasksCard = () => {
   return (
     <>
       <Card className="p-4 sm:p-6 h-[550px] flex flex-col overflow-hidden rounded-2xl shadow-md">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">My Tasks</h3>
+        <h3 className="text-xl font-semibold text-[#05174b] mb-4">My Tasks</h3>
 
         <div className="flex flex-col sm:flex-row gap-2 mb-3 flex-wrap">
           <TextField
@@ -163,7 +163,6 @@ const TasksCard = () => {
             placeholder="Title"
             value={newTask.title}
             onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-          
           />
           <TextField
             size="small"

@@ -11,64 +11,64 @@ import {
 } from "recharts";
 import ChartCardWrapper from "./ChartCardWrapper"; // adjust path if needed
 
-const data = [
-  { location: "Gurgaon", Male: 28, Female: 32 },
-  { location: "Panchkula", Male: 15, Female: 18 },
-  { location: "Bengaluru", Male: 40, Female: 45 },
-  { location: "Hyderabad", Male: 30, Female: 27 },
-  { location: "Austin", Male: 22, Female: 20 },
-  { location: "Dubai", Male: 35, Female: 33 },
-  { location: "London", Male: 30, Female: 38 },
-  { location: "Noida", Male: 25, Female: 29 },
-];
 
-const chart = (
-  <ResponsiveContainer width="100%" height={300}>
-    <BarChart
-      data={data}
-      margin={{ top: 20, right: 30, left: 10, bottom: 10 }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="location" interval={0} angle={-25} textAnchor="end" tick={{ fontSize: 10 }}    />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="Male" fill="#3B82F6" name="Male" radius={[4, 4, 0, 0]} />
-      <Bar dataKey="Female" fill="#F472B6" name="Female" radius={[4, 4, 0, 0]} />
-    </BarChart>
-  </ResponsiveContainer>
-);
 
-const table = (
-  <div className="overflow-x-auto">
-    <table className="min-w-full border border-gray-200 text-sm">
-      <thead className="bg-gray-100">
-        <tr>
-          <th className="px-3 py-2 text-left border">Location</th>
-          <th className="px-3 py-2 text-right border">Male</th>
-          <th className="px-3 py-2 text-right border">Female</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row) => (
-          <tr key={row.location} className="hover:bg-gray-50">
-            <td className="px-3 py-2 border">{row.location}</td>
-            <td className="px-3 py-2 text-right border">{row.Male}</td>
-            <td className="px-3 py-2 text-right border">{row.Female}</td>
+const LocationWiseChart = ({ data }) => {
+  const chart = (
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart
+        data={data}
+        margin={{ top: 20, right: 30, left: 10, bottom: 10 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis
+          dataKey="location"
+          interval={0}
+          angle={-25}
+          textAnchor="end"
+          tick={{ fontSize: 10 }}
+        />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="Male" fill="#3B82F6" name="Male" radius={[4, 4, 0, 0]} />
+        <Bar
+          dataKey="Female"
+          fill="#F472B6"
+          name="Female"
+          radius={[4, 4, 0, 0]}
+        />
+      </BarChart>
+    </ResponsiveContainer>
+  );
+
+  const table = (
+    <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-200 text-sm">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="px-3 py-2 text-left border">Location</th>
+            <th className="px-3 py-2 text-right border">Male</th>
+            <th className="px-3 py-2 text-right border">Female</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
-
-const LocationWiseChart = () => {
+        </thead>
+        <tbody>
+          {data?.map((row) => (
+            <tr key={row.location} className="hover:bg-gray-50">
+              <td className="px-3 py-2 border">{row.location}</td>
+              <td className="px-3 py-2 text-right border">{row.Male}</td>
+              <td className="px-3 py-2 text-right border">{row.Female}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
   return (
     <ChartCardWrapper
       title="Location-wise Employees"
       chartContent={chart}
       tableContent={table}
-   
     />
   );
 };

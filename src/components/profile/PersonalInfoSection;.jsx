@@ -26,7 +26,7 @@ const PersonalInfoSection = () => {
 
       {/* About */}
       <div>
-        <h3 className="text-lg font-semibold mb-1">About</h3>
+        <h3 className="text-lg font-semibold mb-1 text-[#05174b]">About</h3>
         <p className="text-gray-600 text-sm leading-relaxed">{info.about}</p>
       </div>
 

@@ -64,7 +64,7 @@ const InterviewsCard = () => {
   return (
     <>
       <Card className="p-4 sm:p-6 rounded-2xl shadow-md border border-gray-100 bg-gradient-to-br from-white via-blue-50 to-indigo-50 h-full flex flex-col">
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">My Interviews</h3>
+        <h3 className="text-xl font-semibold text-[#05174b] mb-4">My Interviews</h3>
 
         <CardContent className="p-0 space-y-3 overflow-y-auto max-h-[360px]">
           {interviews.map((interview) => (
@@ -140,7 +140,7 @@ const InterviewsCard = () => {
               <Button
                 variant="contained"
                 onClick={handleClose}
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+                className="e text-white rounded-md"
               >
                 Close
               </Button>

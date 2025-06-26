@@ -31,7 +31,7 @@ const meetings = [
 const MeetingsCard = () => {
   return (
     <Card className="p-4 sm:p-6 rounded-2xl shadow-md border border-gray-100 bg-gradient-to-br from-white via-blue-50 to-indigo-50 h-full">
-      <h3 className="text-xl font-semibold mb-4 text-gray-800">My Meetings</h3>
+      <h3 className="text-xl font-semibold mb-4 text-[#05174b]">My Meetings</h3>
 
       <div className="flex space-x-4 overflow-x-auto pb-2 hide-scrollbar">
         {meetings.map((meeting) => (

@@ -63,7 +63,7 @@ const BlockCalendarCard = () => {
     <>
       <Card className="p-4 sm:p-6 rounded-2xl shadow-md bg-gradient-to-br from-white via-blue-50 to-indigo-50 h-full flex flex-col">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+          <h3 className="text-xl font-semibold text-[#05174b] flex items-center gap-2">
             <CalendarIcon className="w-5 h-5 text-indigo-600" />
             Block Calendar
           </h3>
