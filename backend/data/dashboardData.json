@@ -1,0 +1,215 @@
+{
+  "todaysMeetings": [
+    {
+      "id": 1,
+      "candidate": {
+        "name": "Candidate A",
+        "designation": "Senior Python Developer"
+      },
+      "date": "19th Feb 2024",
+      "time": "10:30 A.M",
+      "levels": [
+        {
+          "level": "1st Level",
+          "status": "7/10",
+          "interviewer": "Interviewer 1"
+        },
+        {
+          "level": "2nd Level",
+          "status": "6/10",
+          "interviewer": "Interviewer 2"
+        },
+        {
+          "level": "3rd Level",
+          "status": "Waiting",
+          "interviewer": "Interviewer 3"
+        }
+      ],
+      "meetVia": "G-Meet",
+      "attendees": "Attendee 1"
+    },
+    {
+      "id": 2,
+      "candidate": {
+        "name": "Candidate B",
+        "designation": "Senior Python Developer"
+      },
+      "date": "19th Feb 2024",
+      "time": "10:30 A.M",
+      "levels": [
+        {
+          "level": "1st Level",
+          "status": "7/10",
+          "interviewer": "Interviewer 1"
+        },
+        {
+          "level": "2nd Level",
+          "status": "6/10",
+          "interviewer": "Interviewer 2"
+        },
+        {
+          "level": "3rd Level",
+          "status": "Waiting",
+          "interviewer": "Interviewer 3"
+        }
+      ],
+      "meetVia": "G-Meet",
+      "attendees": "Attendee 1"
+    },
+    {
+      "id": 3,
+      "candidate": {
+        "name": "Candidate C",
+        "designation": "Senior Python Developer"
+      },
+      "date": "19th Feb 2024",
+      "time": "10:30 A.M",
+      "levels": [
+        {
+          "level": "1st Level",
+          "status": "7/10",
+          "interviewer": "Interviewer 1"
+        },
+        {
+          "level": "2nd Level",
+          "status": "6/10",
+          "interviewer": "Interviewer 2"
+        },
+        {
+          "level": "3rd Level",
+          "status": "Waiting",
+          "interviewer": "Interviewer 3"
+        }
+      ],
+      "meetVia": "G-Meet",
+      "attendees": "Attendee 1"
+    }
+  ],
+  "postedJobs": [
+    {
+      "id": 1,
+      "icon": "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
+      "role": "Python Developer",
+      "position": "Senior Developer",
+      "total_applicants": 258,
+      "percentage_inc": 28,
+      "last_updated": "6 min ago"
+    },
+    {
+      "id": 2,
+      "icon": "https://cdn-icons-png.flaticon.com/512/919/919825.png",
+      "role": "Angular Developer",
+      "position": "Senior Developer",
+      "total_applicants": 180,
+      "percentage_inc": 15,
+      "last_updated": "10 min ago"
+    },
+    {
+      "id": 3,
+      "icon": "https://cdn-icons-png.flaticon.com/512/226/226777.png",
+      "role": "Java Developer",
+      "position": "Senior Developer",
+      "total_applicants": 300,
+      "percentage_inc": 35,
+      "last_updated": "1 hour ago"
+    },
+    {
+      "id": 4,
+      "icon": "https://cdn-icons-png.flaticon.com/512/1828/1828899.png",
+      "role": "UX|UI Designer",
+      "position": "Senior Developer",
+      "total_applicants": 120,
+      "percentage_inc": 12,
+      "last_updated": "30 min ago"
+    }
+  ],
+  "candidateStatus": [
+    {
+      "id": "#001",
+      "name": "Candidate A",
+      "position": "Designer",
+      "levels": [6, 7, 3, null],
+      "outOf": 10,
+      "status": "Active"
+    },
+    {
+      "id": "#002",
+      "name": "Candidate B",
+      "position": "Angular Developer",
+      "levels": [6, 5, 5, null],
+      "outOf": 10,
+      "status": "Hired"
+    },
+    {
+      "id": "#003",
+      "name": "Candidate C",
+      "position": "Android Developer",
+      "levels": [6, 5, 0, 0],
+      "outOf": 10,
+      "status": "Rejected"
+    },
+    {
+      "id": "#004",
+      "name": "Candidate D",
+      "position": "iOS Developer",
+      "levels": [5, 2, 8, null],
+      "outOf": 10,
+      "status": "Active"
+    },
+    {
+      "id": "#005",
+      "name": "Candidate E",
+      "position": "Junior Designer",
+      "levels": [6, 7, 3, null],
+      "outOf": 10,
+      "status": "Active"
+    }
+  ],
+  "upcomingInterviews": [
+    {
+      "date": "2024-02-07T10:00:00",
+      "position": "Designer",
+      "createdBy": "Interviewer A",
+      "duration": "10 A.M to 11 A.M"
+    },
+    {
+      "date": "2024-02-07T10:00:00",
+      "position": "PMO",
+      "createdBy": "Interviewer B",
+      "duration": "10 A.M to 11 A.M"
+    },
+    {
+      "date": "2024-02-07T10:00:00",
+      "position": "Net. Admin",
+      "createdBy": "Interviewer A",
+      "duration": "10 A.M to 11 A.M"
+    }
+  ],
+  "hiredCandidates": [
+    {
+      "candidate_name": "Candidate A",
+      "position": "Senior Python Developer",
+      "hiredBy": "Interviewer X"
+    },
+    {
+      "candidate_name": "Candidate B",
+      "position": "Senior Python Developer",
+      "hiredBy": "Interviewer X"
+    },
+    {
+      "candidate_name": "Candidate C",
+      "position": "Senior Python Developer",
+      "hiredBy": "Interviewer X"
+    },
+    {
+      "candidate_name": "Candidate D",
+      "position": "Senior Python Developer",
+      "hiredBy": "Interviewer X"
+    },
+    {
+      "candidate_name": "Candidate E",
+      "position": "Senior Python Developer",
+      "hiredBy": "Interviewer X"
+    }
+  ]
+}

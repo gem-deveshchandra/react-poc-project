@@ -1,0 +1,42 @@
+{
+  "genderRatio": [
+    { "name": "Male", "value": 780 },
+    { "name": "Female", "value": 340 }
+  ],
+  "departmentHeadcount": [
+    { "department": "Java", "Male": 30, "Female": 20 },
+    { "department": "Marketing", "Male": 15, "Female": 25 },
+    { "department": "HR", "Male": 10, "Female": 30 },
+    { "department": "Sales", "Male": 25, "Female": 15 },
+    { "department": "Finance", "Male": 12, "Female": 18 },
+    { "department": "Full Stack", "Male": 22, "Female": 28 },
+    { "department": "DevOps", "Male": 18, "Female": 12 },
+    { "department": "Python", "Male": 20, "Female": 25 },
+    { "department": "Infrastructure", "Male": 17, "Female": 13 },
+    { "department": ".NET", "Male": 14, "Female": 16 }
+  ],
+  "locationsData": [
+    { "location": "Gurgaon", "Male": 28, "Female": 32 },
+    { "location": "Panchkula", "Male": 15, "Female": 18 },
+    { "location": "Bengaluru", "Male": 40, "Female": 45 },
+    { "location": "Hyderabad", "Male": 30, "Female": 27 },
+    { "location": "Austin", "Male": 22, "Female": 20 },
+    { "location": "Dubai", "Male": 35, "Female": 33 },
+    { "location": "London", "Male": 30, "Female": 38 },
+    { "location": "Noida", "Male": 25, "Female": 29 }
+  ],
+  "ageTenureData": [
+    { "ageGroup": "20-25", "Male": 12, "Female": 14 },
+    { "ageGroup": "26-30", "Male": 18, "Female": 22 },
+    { "ageGroup": "31-35", "Male": 25, "Female": 20 },
+    { "ageGroup": "36-40", "Male": 14, "Female": 12 },
+    { "ageGroup": "41+", "Male": 10, "Female": 8 }
+  ],
+  "rolesData": [
+    { "role": "Developer", "Male": 22, "Female": 10 },
+    { "role": "QA", "Male": 10, "Female": 12 },
+    { "role": "Designer", "Male": 6, "Female": 14 },
+    { "role": "Manager", "Male": 8, "Female": 6 },
+    { "role": "HR", "Male": 2, "Female": 8 }
+  ]
+}

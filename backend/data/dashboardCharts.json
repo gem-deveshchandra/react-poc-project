@@ -1,0 +1,40 @@
+{
+    "roles": [
+      { "role": "Developer", "count": 440 },
+      { "role": "Designer", "count": 120 },
+      { "role": "HR", "count": 85 },
+      { "role": "Manager", "count": 95 },
+      { "role": "QA", "count": 260 }
+    ],
+    "newHiresVsTerminations": [
+      { "month": "Jan", "newHires": 12, "terminations": 4, "totalEmployees": 100 },
+      { "month": "Feb", "newHires": 8, "terminations": 6, "totalEmployees": 102 },
+      { "month": "Mar", "newHires": 15, "terminations": 5, "totalEmployees": 112 },
+      { "month": "Apr", "newHires": 10, "terminations": 7, "totalEmployees": 115 },
+      { "month": "May", "newHires": 18, "terminations": 3, "totalEmployees": 100 },
+      { "month": "Jun", "newHires": 14, "terminations": 6, "totalEmployees": 138 },
+      { "month": "Jul", "newHires": 20, "terminations": 9, "totalEmployees": 149 },
+      { "month": "Aug", "newHires": 17, "terminations": 5, "totalEmployees": 161 },
+      { "month": "Sep", "newHires": 11, "terminations": 6, "totalEmployees": 166 },
+      { "month": "Oct", "newHires": 13, "terminations": 4, "totalEmployees": 175 },
+      { "month": "Nov", "newHires": 9, "terminations": 7, "totalEmployees": 177 },
+      { "month": "Dec", "newHires": 16, "terminations": 8, "totalEmployees": 105 }
+    ],
+    "locations": [
+      { "location": "Gurgaon", "coordinates": [77.0266, 28.4595], "count": 700 },
+      { "location": "Panchkula", "coordinates": [76.8537, 30.6943], "count": 150 },
+      { "location": "Bengaluru", "coordinates": [77.5946, 12.9716], "count": 21 },
+      { "location": "Hyderabad", "coordinates": [78.4867, 17.3850], "count": 13 },
+      { "location": "Austin", "coordinates": [30.2672, -97.7431], "count": 11 },
+      { "location": "Dubai", "coordinates": [55.2708, 25.2048], "count": 39 },
+      { "location": "London", "coordinates": [-0.1276, 51.5072], "count": 11 },
+      { "location": "Noida", "coordinates": [77.3188, 28.5355], "count": 15 }
+    ],
+    "candidates": [
+      { "quarter": "Q1", "Applied": 150, "Shortlisted": 90, "Interviewed": 45, "Offered": 20, "Joined": 2 },
+      { "quarter": "Q2", "Applied": 180, "Shortlisted": 100, "Interviewed": 50, "Offered": 22, "Joined": 0 },
+      { "quarter": "Q3", "Applied": 170, "Shortlisted": 110, "Interviewed": 60, "Offered": 20, "Joined": 2 },
+      { "quarter": "Q4", "Applied": 160, "Shortlisted": 90, "Interviewed": 40, "Offered": 20, "Joined": 7 }
+    ]
+  }
+  
