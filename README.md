@@ -102,7 +102,7 @@ node app.js
 ### 3️⃣ Start the Frontend
 
 ```bash
-cd frontend
+cd front-end
 npm install
 npm run dev
 ```
